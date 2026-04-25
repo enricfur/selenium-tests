@@ -50,7 +50,7 @@ class TestFBank:
 
         with allure.step("Ввести в поле номер карты с 17 символами"):
             page.enter_card_number("12345678901234567")
-            assert page.is_displayed(FBankLocators.INPUT_TRANSFER_SUM)
+            assert page.is_not_displayed(FBankLocators.INPUT_TRANSFER_SUM)
 
     @allure.title("Расчет комиссии для суммы 10 рублей")
     def test_transfer_with_10_rub(self, driver):
@@ -86,3 +86,5 @@ class TestFBank:
             page.create_transfer()
             assert page.alert_has_text("Перевод 100 ₽ на карту 1234567890123456 принят банком!")
             page.accept_alert()
+            assert page.has_text(FBankLocators.RUB_RESERVED, "1'300")
+
