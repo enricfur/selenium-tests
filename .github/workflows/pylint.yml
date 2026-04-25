@@ -43,7 +43,7 @@ jobs:
       - name: Run local server and tests
         shell: bash
         run: |
-          cd selenium_project/dist
+          cd dist
           python -m http.server 8000 > ../http-server.log 2>&1 &
           SERVER_PID=$!
           cd ..
