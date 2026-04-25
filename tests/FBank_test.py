@@ -65,7 +65,7 @@ class TestFBank:
         with allure.step("В поле суммы перевода ввести 10"):
             page.enter_transfer_sum("10")
             assert page.is_displayed(FBankLocators.TRANSFER_BUTTON)
-            assert page.has_text(FBankLocators.COMMISSION, "0")
+            assert page.has_text(FBankLocators.COMMISSION, "1")
 
     @allure.title("Расчет комиссии для суммы 100 рублей и отправка перевода")
     def test_with_100_rub_transfer(self, driver):
